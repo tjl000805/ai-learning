@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+
+# 个人学习笔记，不公开
+AI学习计划.md
