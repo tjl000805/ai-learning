@@ -5,8 +5,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "chat": "node week1/chat.mjs",
-    "persona": "node week2/persona.mjs"
+    "chat": "node --env-file-if-exists=.env week1/chat.mjs",
+    "persona": "node --env-file-if-exists=.env week2/persona.mjs"
   },
   "repository": {
     "type": "git",

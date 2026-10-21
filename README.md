@@ -33,14 +33,20 @@ week2/                 Week2：巩固 API 能力
 
 PowerShell：
 
-```powershell
-$env:DEEPSEEK_API_KEY = "你的 DeepSeek API Key"
-node week1/chat.mjs                    # 通用对话工具（流式 + 多轮）
-node week2/persona.mjs interviewer     # 人设：interviewer / reviewer / tutor
+在项目根目录创建 `.env`（已被 .gitignore 排除，不会提交）：
 
-# 或通过 npm scripts
+```
+DEEPSEEK_API_KEY=你的 DeepSeek API Key
+```
+
+```powershell
+# 推荐：npm scripts 会自动加载 .env
 npm run chat
-npm run persona -- interviewer
+npm run persona -- interviewer     # 人设：interviewer / reviewer / tutor
+
+# 或直接运行（需要自己带上 --env-file-if-exists）
+node --env-file-if-exists=.env week1/chat.mjs
+node --env-file-if-exists=.env week2/persona.mjs interviewer
 ```
 
 两个工具都输入 `exit` 退出。
