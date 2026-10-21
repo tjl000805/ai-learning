@@ -27,6 +27,8 @@ week2/                 Week2：巩固 API 能力
 week3/                 Week3：后端 + Next.js
   server.mjs           Express 服务：GET /hello、POST /chat、错误处理
   web/                 Next.js App Router 应用（TypeScript + Tailwind）
+    src/app/page.tsx              流式对话 UI（多轮气泡、自动滚动）
+    src/app/api/chat/route.ts     POST /api/chat：校验 + 调用 DeepSeek + SSE 转纯文本流
 ```
 
 ## 环境要求
@@ -38,7 +40,7 @@ week3/                 Week3：后端 + Next.js
 
 PowerShell：
 
-在项目根目录创建 `.env`（已被 .gitignore 排除，不会提交）：
+在项目根目录创建 `.env`（CLI 用），并在 `week3/web/` 下创建 `.env.local`（Next 服务端用）。两者都已被 .gitignore 排除：
 
 ```
 DEEPSEEK_API_KEY=你的 DeepSeek API Key
@@ -52,6 +54,10 @@ npm run persona -- interviewer     # 人设：interviewer / reviewer / tutor
 # 或直接运行（需要自己带上 --env-file-if-exists）
 node --env-file-if-exists=.env week1/chat.mjs
 node --env-file-if-exists=.env week2/persona.mjs interviewer
+
+# Next.js 网页（另开一个终端）
+cd week3/web
+npm run dev -- -p 3001     # 打开 http://localhost:3001
 ```
 
 两个工具都输入 `exit` 退出。
@@ -63,4 +69,6 @@ node --env-file-if-exists=.env week2/persona.mjs interviewer
 - [x] 模块拆分：npm 初始化 + `api.mjs` / `personas.mjs` / `persona.mjs`
 - [x] 历史持久化：按人设保存到本地 JSON，重启可恢复
 - [x] Week3 起步：Express（GET / POST / 错误处理）+ Next.js 页面
-- [ ] 下一步：Next.js Route Handler 调大模型 + 流式对话 UI + 部署 Vercel
+- [x] Route Handler `POST /api/chat` 调 DeepSeek + 多轮对话
+- [x] 流式对话 UI（SSE 转文本流）+ Tailwind 界面
+- [ ] 下一步：部署 Vercel，产出线上可访问的 AI 聊天网页
