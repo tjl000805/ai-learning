@@ -4,6 +4,10 @@ AI 应用开发学习项目（14 周计划），Node.js 技术栈，目标岗位
 
 不训练模型，专注用工程能力把大模型做成产品。
 
+## 在线演示
+
+https://ai-learning-web-beta.vercel.app/
+
 ## 技术栈
 
 - Node.js（ESM）+ 原生 `fetch`
@@ -71,4 +75,5 @@ npm run dev -- -p 3001     # 打开 http://localhost:3001
 - [x] Week3 起步：Express（GET / POST / 错误处理）+ Next.js 页面
 - [x] Route Handler `POST /api/chat` 调 DeepSeek + 多轮对话
 - [x] 流式对话 UI（SSE 转文本流）+ Tailwind 界面
-- [ ] 下一步：部署 Vercel，产出线上可访问的 AI 聊天网页
+- [x] 部署 Vercel：https://ai-learning-web-beta.vercel.app/
+- [ ] 下一步：Week4 Function Calling / Tool Use
