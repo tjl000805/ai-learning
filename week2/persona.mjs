@@ -5,6 +5,7 @@ import readline from "node:readline/promises";
 import { stdin, stdout } from "node:process";
 import { chatStream } from "./api.mjs";
 import { personas } from "./personas.mjs";
+import { loadHistory, saveHistory } from "./history.mjs";
 
 if (!process.env.DEEPSEEK_API_KEY) {
   console.error("❌ 没读到 DEEPSEEK_API_KEY");
@@ -19,11 +20,14 @@ if (!systemPrompt) {
   process.exit(1);
 }
 
-// 记忆数组：第一项就是 system —— 它设定模型的"身份"，优先级高于 user
-const messages = [{ role: "system", content: systemPrompt }];
+// 恢复历史：只存 user / assistant，system 每次用当前人设重新拼
+const history = await loadHistory(personaName);
+const messages = [{ role: "system", content: systemPrompt }, ...history];
 
 const rl = readline.createInterface({ input: stdin, output: stdout });
-console.log(`人设：${personaName}，输入 exit 退出。\n`);
+console.log(
+  `人设：${personaName}，已恢复 ${history.length} 条历史，输入 exit 退出。\n`,
+);
 
 while (true) {
   const input = (await rl.question("你: ")).trim();
@@ -36,6 +40,7 @@ while (true) {
     const reply = await chatStream(messages);
     console.log("\n");
     messages.push({ role: "assistant", content: reply });
+    await saveHistory(personaName, messages.slice(1)); // slice(1) 去掉 system
   } catch (err) {
     console.log(`\n❌ ${err.message}`);
     messages.pop(); // 回滚这条失败的 user 消息
