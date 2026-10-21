@@ -19,7 +19,9 @@ week1/                 Week1：打通 API 调用
   multi-turn.mjs       多轮对话（维护 messages 历史）
   chat.mjs             命令行 AI 对话工具（流式 + 多轮）
 week2/                 Week2：巩固 API 能力
-  persona.mjs          可切换人设的对话工具 + 错误处理（超时 / 401 / 429 / 5xx）
+  api.mjs              DeepSeek 调用 + 错误处理（可复用模块）
+  personas.mjs         人设 system prompt 数据
+  persona.mjs          可切换人设的 CLI 对话工具
 ```
 
 ## 环境要求
@@ -35,6 +37,10 @@ PowerShell：
 $env:DEEPSEEK_API_KEY = "你的 DeepSeek API Key"
 node week1/chat.mjs                    # 通用对话工具（流式 + 多轮）
 node week2/persona.mjs interviewer     # 人设：interviewer / reviewer / tutor
+
+# 或通过 npm scripts
+npm run chat
+npm run persona -- interviewer
 ```
 
 两个工具都输入 `exit` 退出。
@@ -42,5 +48,6 @@ node week2/persona.mjs interviewer     # 人设：interviewer / reviewer / tutor
 ## 学习进度
 
 - [x] Week1：API 调用、流式输出、多轮对话、CLI 对话工具
-- [x] Week2：system prompt 人设 + 错误处理（超时 / 401 / 429 / 5xx）
-- [ ] 下一步：模块拆分、历史记录持久化、TypeScript
+- [x] Week2：system prompt 人设、错误处理（超时 / 401 / 429 / 5xx）
+- [x] 模块拆分：npm 初始化 + `api.mjs` / `personas.mjs` / `persona.mjs`
+- [ ] 下一步：历史记录持久化、TypeScript

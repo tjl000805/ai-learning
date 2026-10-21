@@ -1,0 +1,22 @@
+{
+  "name": "ai-learning",
+  "version": "1.0.0",
+  "description": "AI app development learning journey: Node.js + DeepSeek API",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "chat": "node week1/chat.mjs",
+    "persona": "node week2/persona.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjl000805/ai-learning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjl000805/ai-learning/issues"
+  },
+  "homepage": "https://github.com/tjl000805/ai-learning#readme"
+}
