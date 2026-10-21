@@ -24,6 +24,9 @@ week2/                 Week2：巩固 API 能力
   history.mjs          对话历史读写（本地 JSON，按人设隔离）
   persona.mjs          可切换人设的 CLI 对话工具
   data/                本地对话历史（gitignored）
+week3/                 Week3：后端 + Next.js
+  server.mjs           Express 服务：GET /hello、POST /chat、错误处理
+  web/                 Next.js App Router 应用（TypeScript + Tailwind）
 ```
 
 ## 环境要求
@@ -59,4 +62,5 @@ node --env-file-if-exists=.env week2/persona.mjs interviewer
 - [x] Week2：system prompt 人设、错误处理（超时 / 401 / 429 / 5xx）
 - [x] 模块拆分：npm 初始化 + `api.mjs` / `personas.mjs` / `persona.mjs`
 - [x] 历史持久化：按人设保存到本地 JSON，重启可恢复
-- [ ] 下一步：Week3 —— Express + Next.js，做可上线的 AI 聊天网页
+- [x] Week3 起步：Express（GET / POST / 错误处理）+ Next.js 页面
+- [ ] 下一步：Next.js Route Handler 调大模型 + 流式对话 UI + 部署 Vercel
