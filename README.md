@@ -14,10 +14,12 @@ AI 应用开发学习项目（14 周计划），Node.js 技术栈，目标岗位
 
 ```
 week1/                 Week1：打通 API 调用
-  hello.mjs            Day1 首次调用 + temperature 对比
-  stream.mjs           Day4 流式输出（SSE）
-  multi-turn.mjs       Day5 多轮对话（维护 messages 历史）
-  chat.mjs             Day6 命令行 AI 对话工具（流式 + 多轮）
+  hello.mjs            首次调用 + temperature 对比
+  stream.mjs           流式输出（SSE）
+  multi-turn.mjs       多轮对话（维护 messages 历史）
+  chat.mjs             命令行 AI 对话工具（流式 + 多轮）
+week2/                 Week2：巩固 API 能力
+  persona.mjs          可切换人设的对话工具 + 错误处理（超时 / 401 / 429 / 5xx）
 ```
 
 ## 环境要求
@@ -31,13 +33,14 @@ PowerShell：
 
 ```powershell
 $env:DEEPSEEK_API_KEY = "你的 DeepSeek API Key"
-node week1/chat.mjs
+node week1/chat.mjs                    # 通用对话工具（流式 + 多轮）
+node week2/persona.mjs interviewer     # 人设：interviewer / reviewer / tutor
 ```
 
-`chat.mjs` 支持连续对话和逐字流式输出，输入 `exit` 退出。
+两个工具都输入 `exit` 退出。
 
 ## 学习进度
 
-- [x] Week1 Day1-6：API 调用、流式输出、多轮对话、CLI 对话工具
-- [ ] Week1 Day7：复盘 + 仓库整理
-- [ ] Week2：错误处理、模块拆分、TypeScript
+- [x] Week1：API 调用、流式输出、多轮对话、CLI 对话工具
+- [x] Week2：system prompt 人设 + 错误处理（超时 / 401 / 429 / 5xx）
+- [ ] 下一步：模块拆分、历史记录持久化、TypeScript
